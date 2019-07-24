@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.web.dao.GuestbookMapper">
+	<select id="read" parameterType="int" resultType="GuestbookVO">
+	SELECT *
+	
+	FROM
+		guestbook
+	WHERE
+		seq = #{seq}
+		
+	</select>
+	
+	<select id="guestbookList" resultType="GuestbookVO">
+		SELECT *
+		FROM
+			guestbook
+		ORDER BY
+			seq DESC
+	</select>
+	
+	<insert id="write" parameterType="GuestbookVO">
+		INSERT INTO
+			guestbook
+		VALUES (
+			guestbook_seq.nextval
+			,#{name}
+			,#{pwd}
+			,#{content}
+			,sysdate
+			<choose>
+				<when test="originalFilename != null and savedFilename != null">
+					,#{originalFilename},#{savedFilename}					
+				</when>
+				<otherwise>
+					,null,null
+				</otherwise>
+			</choose>
+			
+		)
+	</insert>
+	
+	<delete id="delete" parameterType="GuestbookVO">
+		DELETE
+			guestbook
+		WHERE
+			seq = #{seq}
+			AND pwd = #{pwd}
+	</delete>
+</mapper>
+
