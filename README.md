@@ -1,4 +1,4 @@
-THIS Repository
+This Repository
 ======
-1.
-2.
+1. Stored what I've done
+2. Checking out
