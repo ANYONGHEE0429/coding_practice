@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>문제가 발생했습니다.</h1>
-	<h1>${msg}</h1>//Controller model 출력값 
+	<h1>${msg}</h1>	<!--Controller model 출력값 -->
 	<h1>${ex}</h1>
 	<a href="/web/">메인 페이지</a>
 </body>
