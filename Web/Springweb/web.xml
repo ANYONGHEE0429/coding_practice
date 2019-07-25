@@ -25,6 +25,11 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 		
+	<init-param>	<!--404 Error의 경우  -->
+		<param-name>throwExceptionIfNoHandlerFound</param-name>
+		<param-value>true</param-value>
+	</init-param>
+
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
