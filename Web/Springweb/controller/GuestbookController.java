@@ -51,4 +51,9 @@ public class GuestbookController {
 		service.download(vo, response);
 	}
 	
+	@RequestMapping(value = "nullException", method = {RequestMethod.GET, RequestMethod.POST})
+	public String nullException() {
+		throw new NullPointerException(); 
+	}
+	
 }
