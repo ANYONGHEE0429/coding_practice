@@ -15,12 +15,17 @@ public class BoardInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 //preHandle란 컨트롤러 실행 전, 호출
 		HttpSession session = request.getSession();
+		if(session.getAttribute("userid") != null) return true; //유저아이디가 존재
+		response.sendRedirect("/web/member/loginForm");
+		return false;
+		
+		/*HttpSession session = request.getSession();
 		Object obj = session.getAttribute("userid");
 		if (obj == null) {
 			response.sendRedirect("/web/member/loginForm");
 			return false;
 		}
-		return true;
+		return true;*/
 	}
 
 	@Override
