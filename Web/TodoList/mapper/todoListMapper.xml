@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.todoList.web.dao.TodolistMapper">
+	
+	<insert id="insertTodolist" parameterType="TodolistVO">
+		INSERT INTO
+			todo
+		(todoseq, userid, tododata, importance, deadline, comments)
+		VALUES (
+			todo_seq.nextval
+			,#{userid}
+			,#{tododata}
+			,#{importance}
+			,#{deadline}
+			,#{comments}
+		)
+	</insert>
+	
+	<select id="todolist" parameterType="string" resultType="TodolistVO">
+		SELECT
+			*
+		FROM
+			todo
+		WHERE
+			userid = #{userid}
+		ORDER BY
+			regdate DESC
+	</select>
+	
+	<select id="regdateCnt" parameterType="string" resultType="int">
+		SELECT
+			COUNT(regdate)
+		FROM
+			todo
+		WHERE
+			userid = #{userid}
+		GROUP BY
+			regdate
+		ORDER BY
+			regdate DESC
+	</select>
+</mapper>
