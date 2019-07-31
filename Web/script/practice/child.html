@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Child</title>
+<script>
+	function setParent(){
+		opener.document.getElementById("pInput").value = document.getElementById("cInput").value;
+    <!--child의 text에 입력했던 값을 parent의 text로 보냄 --><!--opener는 최초 child의 창을 열었던 창을 의미, 즉 parent를  -->
+	}
+
+	function getParent(){
+		document.getElementById("cInput").value = opener.document.getElementById("pInput").value;
+    <!--parent의 text에 입력되었던 값을 child의 text로 가져옴 -->
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="cInput">
+	<input type="button" value="부모 창에 값 보내기" onclick="setParent()">
+	<input type="button" value="부모 창에 값 가져오기" onclick="getParent()">
+</body>
+</html>
