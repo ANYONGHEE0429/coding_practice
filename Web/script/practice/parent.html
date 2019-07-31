@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Parent</title>
+<script >
+
+	var openWin; 
+  <!--선언 -->
+
+	function goToChild(){
+		window.name = "parentForm"
+		openWin = window.open("child.html","", "height=300, width=600, top=200,left=300"); 
+    <!--child창이 open되었을 때의 위치 및 크기 -->
+	}
+	
+	function setChildText(){
+		openWin.document.getElementById("cInput").value = document.getElementById("pInput").value; 
+    <!--parent의 text에 입력했던 값을 child의 text로 보냄 -->
+	}
+	
+	function getChildText(){
+		document.getElementById("pInput").value = openWin.getElementById("cInput").value;
+    <!--child의 text에 입력했던 값을 parent의 텍스트로 가져옴 -->
+	}
+</script>
+</head>
+<body>
+
+	<input type="button" value="자식 창 열기" onclick="goToChild()"><br>
+	<input type="text" id="pInput">
+	<input type="button" value="자식 창에 값 보내기" onclick="setChildText()">
+	<input type="button" value="자식 창에 값 가져오기" onclick="getChildText()">
+</body>
+</html>
