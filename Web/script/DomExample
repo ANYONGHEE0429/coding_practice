@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>너의 탕수육은 누구니</title>
+<script>
+	window.onload = function(){
+		var btn = document.getElementById("btn");
+		btn.onclick = addInfo;
+	}
+
+	function addInfo(){
+		var userid = document.getElementById("userid");
+		var username = document.getElementById("username");
+		var arr = document.getElementsByName("usertype");
+		var infotable = document.getElementById("infotable"); //infortable Table 안에 있는 정보를 가져옴
+		var usertype; //껍데기
+
+		for(var i of arr){  //Array에서 배열 i의 값을 추출
+			if(i.checked){  //radio box에서 check된 값들을 추출
+      usertype = i.value; //i의 value값을 usertype에 넣음
+				break;
+			}
+		}
+		var str = "";   
+		str += "<tr>";
+		str += "<td>" + userid.value + "</td>";
+		str += "<td>" + username.value + "</td>";
+		str += "<td>" + usertype + "</td>";
+		str += "<td>" + "<input type='button' value='삭제' onclick='infoDelete(this)'>" + "</td>";
+		str += "</tr>";	
+		infotable.innerHTML += str; 
+		
+	}
+		var temp;
+		function infoDeletE(info){
+			var temp = info.parentNode.parentNode.parentNode; //chrome 특성상 tbody를 생성하므로 delete를 하기 위해서는 상위로 가야함
+			temp.parentNode.removeChild(temp);  //작성했던 값을 삭제 가능
+		}
+	
+</script>
+</head>
+<body>
+	<div>
+		<table id="infotable">
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>종류</th>
+			</tr>
+		</table>
+	<div>
+	아이디 :<input type="text" id="userid"><br>
+	이름 :<input type="text" id="username"><br>
+        종류:<input type="radio" name="usertype" value="부먹"/>부먹
+		 <input type="radio" name="usertype" value="찍먹" checked="checked"/>찍먹
+		 <input type="radio" name="usertype" value="둘다" />둘다<br>
+		<!-- <<input type="button" value="송신" id="btn">> --> //밑의 button과 같음
+		<button id="btn">송신</button>
+	</div>
+
+</body>
+</html>
