@@ -56,7 +56,7 @@ JQueryEx3.html
 + 요소:selected    
      
 ▶배열 처리     
-------    
+       
 + each()       
 + $.each(배열, function(index, item) ) { })      
 - each 함수의 매개변수로 배열을 전달         
