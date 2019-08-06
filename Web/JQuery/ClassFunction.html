@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.bgColor, .bgColor0 {
+		background-color: orange;
+	}
+	
+	.bgColor1 {
+		background-color: blue;
+	}
+	.bgColor2 {
+		background-color: aqua;
+	}
+	.bgColor3 {
+		background-color: green;
+	}
+	.bgColor4 {
+		background-color: olive;
+	}
+	.bgColor5 {
+		background-color: lime;
+	}
+</style>
+
+<script src="/JSproj/js/jquery-3.4.1.js"></script>
+<script>
+	function addCls1() {
+		$("div > *").addClass("bgColor");
+	}
+	
+	function addCls2() {
+		$("div > *").addClass(function(index) {
+			return "bgColor" + index;
+		});
+	}
+	
+	function removeCls1() {
+		$("div > *").removeClass("bgColor");
+	}
+	
+	function removeCls2() {
+		//$('div > *')
+		// -> <h1 class='bgColor0'>가</h1>
+		// -> <h2 class='bgColor1'>나</h2>
+		//removeClass(function(index,item){ return item;})
+		// -> index : 0
+		// -> item : bgColo0
+		// -> index: 1
+		// -> item : bgColor1
+
+		$("div > *").removeClass(function(index, item) {
+			return item;
+		});
+	}
+	
+	function removeCls3() {
+		$("div > *").removeClass();
+	}
+	
+	function toggleCls1() {
+		$("div > *").toggleClass("bgColor");
+	}
+	
+	function toggleCls2() {
+		$("div > *").toggleClass();
+	}
+</script>
+</head>
+<body>
+	<div>
+		<h1>나는 공태웅이다</h1>
+		<h2>나의 이름은 공태웅이다</h2>
+		<h3>내가 바로</h3>
+		<h4>공</h4>
+		<h5>태</h5>
+		<h6>웅</h6>
+	</div>
+	
+	<input type="button" value="class 속성 추가1" onclick="addCls1()"><br>
+	<input type="button" value="class 속성 추가2" onclick="addCls2()"><br>
+	<input type="button" value="class 속성 삭제1" onclick="removeCls1()"><br>	
+	<input type="button" value="class 속성 삭제2" onclick="removeCls2()"><br>
+	<input type="button" value="class 속성 삭제3" onclick="removeCls3()"><br>
+	<input type="button" value="class 속성 토글1" onclick="toggleCls1()"><br>
+	<input type="button" value="class 속성 토글2" onclick="toggleCls2()"><br>
+</body>
