@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/JSproj/js/jquery-3.4.1.js"></script>
+<script>
+	function textCopy(item){
+		var text =$(item).val();
+		$('.copied').val(text);
+	}
+</script>
+</head>
+<body>
+	<input type="text" onkeyup="textCopy(this)"><br>
+	<!-- onkeyup은 눌렀다가 뗏을 때 이벤트 발생 -->
+	<input type="text" class="copied" readonly="readonly"><br>
+	<input type="text" class="copied" readonly="readonly"><br>
+	<input type="text" class="copied" readonly="readonly"><br>
+	
+</body>
+</html>
