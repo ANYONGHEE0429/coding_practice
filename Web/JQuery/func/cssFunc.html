@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuert each</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+		function changeSize(item) {
+			$(item).css('height', 500);
+		}
+		
+		function resetSize() {
+			$('img').css('height', 'auto');
+		}
+</script>
+
+</head>
+<body>
+	<img src="http://bit.ly/goback11" onclick="changeSize(this)" />
+	<img src="http://bit.ly/goback11" onclick="changeSize(this)" />
+	<img src="http://bit.ly/goback11" onclick="changeSize(this)" />
+	<br>
+	<input type="button" value="리셋" onclick="resetSize()" >
+</body>
+</html>
