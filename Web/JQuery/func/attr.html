@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/JSproj/js/jquery-3.4.1.js"></script>
+<script>
+	var cnt = 0;
+	function changeImg(item) {
+		var link = [
+			'http://bit.ly/goback11',
+			'http://bit.ly/goback22',
+			'http://bit.ly/goback33'
+			]
+		
+		if(item.value === '>') cnt++;
+		else cnt<=0 ? cnt=link.length-1 : cnt--;
+		
+		$("img").attr("src", link[cnt % link.length]);
+		//ex 누르면 [1 % 3] 누른면 [2 % 3] = 2 ...
+		//ex -< 누르면 [-1 % 3]이 되면 배열에 -1은 존재하지 않음.. 
+	}
+	function changeSize(item){
+		var width = $('img').attr('width');
+		var height = $('img').attr('height');
+		if(item.value==="+"){
+			$('img').attr({'width': Number(width) + 30,
+						'height': Number(height) + 30});
+	//({'width':width + 30}) 이렇게 할 경우 width는 문자열로 받아 25030이 되어버림 그러므로 숫자로 받아야함
+		}else{
+			$('img').attr({'width': Number(width) - 30,
+						'height': Number(height) - 30});
+		}	
+	}	
+	
+</script>
+</head>
+<body>
+	<img src="http://bit.ly/goback11" width="250" height="250" /><br>
+	<input type="button" value="<" onclick="changeImg(this)">
+	<input type="button" value=">" onclick="changeImg(this)">
+	<br>
+	<input type="button" value="+" onclick="changeSize(this)">
+	<input type="button" value="-" onclick="changeSize(this)">
+	<br>
+</body>
+</html>
