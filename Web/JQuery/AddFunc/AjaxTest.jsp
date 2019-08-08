@@ -10,11 +10,12 @@
 <script src='<c:url value="/js/jquery-3.4.1.js" />'></script>
 <script>
 	$(function() {
-		$('#btn1').on('click', test1);
+		$('#btn1').on('click', test1);	//
 		$('#btn2').on('click', test2);
 		$('#btn3').on('click', test3);
 		$('#btn4').on('click', test4);
 		$('#btn5').on('click', test5);
+		$('#btn6').on('click', test6);
 	});
 
 	function test1() {
